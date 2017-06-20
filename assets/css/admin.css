@@ -1,0 +1,83 @@
+.matrixdata-wrapper {
+    min-width: 255px;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    background: #fff;
+    min-height: 500px;
+}
+.matrixdata-wrapper .toolbar {
+    margin: 0!important;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 9px 12px!important;
+}
+.matrixdata-wrapper input.attribute_values {
+    width: 100%;
+}
+.matrixdata-wrapper input.attribute_name,
+.matrixdata-wrapper input.attribute_values {
+    height: 30px;
+}
+.matrixdata-wrapper h2 {
+    padding: 0px;
+}
+.matrixdata-wrapper h2 span {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    margin-top: 4px;
+}
+.matrixdata-wrapper h2 button {
+    float: left;
+}
+.matrixdata-wrapper td {
+    padding: 5px 5px 0 5px;
+}
+#product_attributes .expand-close {
+    float: right;
+    line-height: 28px;
+}
+.no-border {
+    border-bottom: none !important;
+}
+.matrixdata-wrapper .remove_attribute,
+.matrixdata-wrapper .edit_attribute {
+    padding: 0px 5px 5px;
+    font-size: 18px;
+    font-weight: 100;
+}
+.matrixdata-wrapper .remove_attribute span,
+.matrixdata-wrapper .edit_attribute span {
+    font-family: dashicons;
+}
+.metabox-content {
+    border: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+}
+.metabox-content table td {
+    height: 30px;
+}
+.metabox-content table td .actions {
+    display: none;
+}
+.metabox-content table tr:hover .actions {
+    display: block;
+}
+.metabox-content thead td {
+    border-bottom: 1px solid #e1e1e1;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    height: auto;
+}
+.fu-metaboxes > table > tbody > tr > td {
+    padding: 10px;
+}
+.matrixdata-wrapper .toolbar p {
+    margin-top: 0px;
+}
+.metabox-content select {
+    width: 100%;
+    height: 30px;
+}

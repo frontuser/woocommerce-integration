@@ -1,6 +1,6 @@
 <?php
 
-class SmartCode
+class FrontuserSmartCode
 {
 
 	/**
@@ -50,9 +50,13 @@ class SmartCode
 		$matrix_data = array();
 		if(!empty($post) && $post instanceof WP_Post) {
 			$matrix_data['page'] = array(
-				'name'  => $post->post_title,
-				'type'  => $post->post_name,
-				'url'   => get_permalink($post)
+                'name'  => $post->post_title,
+                'type'  => $post->post_name,
+                'url'   => get_permalink($post),
+                'status'=> $post->post_status,
+                'type'  => $post->post_type,
+                'created_on'  => $post->post_date,
+                'updated_on'  => $post->post_modified,
 			);
 		}
 
@@ -81,7 +85,7 @@ class SmartCode
 		if(is_home()) {
 			$matrix_data['referrer'] = array(
 				'host' => $_SERVER['HTTP_HOST'],
-				'path' => $_SERVER['DOCUMENT_ROOT'],
+				'path' => $_SERVER['REQUEST_URI'],
 				'search' => $_SERVER['QUERY_STRING'],
 				'utm' => array(
 					'medium' => !empty($_REQUEST['medium'])?$_REQUEST['medium']:'',
@@ -91,7 +95,7 @@ class SmartCode
 			);
 		}
 
-		if(is_product_category()) {
+		if(frontuser_is_woocommerce_enabled() && is_product_category()) {
 			$category = $wp_query->get_queried_object();
 			$matrix_data['category'] = array(
 				"id" => $category->term_id,
@@ -130,7 +134,7 @@ class SmartCode
 			$matrix_data['category']['listing']['items_count'] = $count;
 		}
 
-		if(is_product()) {
+		if(frontuser_is_woocommerce_enabled() && is_product()) {
 			if(!empty( $product) && $product instanceof WC_Product) {
 
 				$matrix_data['product'] = array(
@@ -198,7 +202,7 @@ class SmartCode
 			}
 		}
 
-		if(is_cart()) {
+		if(frontuser_is_woocommerce_enabled() && is_cart()) {
 			$cart = WC()->cart;
 			if(!empty( $cart ) && $cart instanceof WC_Cart) {
 
@@ -237,7 +241,7 @@ class SmartCode
 			}
 		}
 
-		if(is_order_received_page()) {
+		if(frontuser_is_woocommerce_enabled() && is_order_received_page()) {
 
 			$order_id = absint( $wp->query_vars['order-received'] );
 			if ( $order_id > 0 ) {

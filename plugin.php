@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Frontuser Integration For WooCommerce
+ * Plugin Name: Frontuser Integration
  * Description: Frontuser is a easiest platform to maximize user engagement, retention & conversion. It allows your WordPress site to send desktop and mobile personalized push notifications and customizable popups.
  * Version: 1.0.0
  * Author: Frontuser
@@ -57,17 +57,10 @@ foreach ( glob( FRONTUSER_PATH . 'frontend/*.php' ) as $file ) {
  */
 function frontuser_admin_settings() {
 
-	global $woocommerce;
-
-	if ( ! isset( $woocommerce ) || ! function_exists('WC') ) {
-		add_action( 'admin_notices', 'frontuser_woocommerce_admin_notice' );
-		return;
-	}
-
-	$plugin = new Setting( new Setting_Page() );
+	$plugin = new FrontuserSetting( new FrontuserSetting_Page() );
 	$plugin->init();
 
-	$plugin = new MatrixData( new MatrixData_Page() );
+	$plugin = new FrontuserMatrixData( new FrontuserMatrixData_Page() );
 	$plugin->init();
 
 	add_action('wp_head', 'frontuser_website_smartcode');
@@ -80,16 +73,16 @@ add_action( 'plugins_loaded', 'frontuser_admin_settings' );
 
 /**
  * Check WooCommerce plugin is enable or not.
- * If WooCommerce is not enable, display notice message.
  *
  * @since 1.0
  */
-function frontuser_woocommerce_admin_notice() {
-	?>
-    <div class="error">
-        <p><?php _e( 'Frontuser WooCommerce is enabled but not effective. It requires WooCommerce in order to work.', 'frontuser' ); ?></p>
-    </div>
-	<?php
+function frontuser_is_woocommerce_enabled() {
+    global $woocommerce;
+
+    if ( ! isset( $woocommerce ) || ! function_exists('WC') ) {
+        return false;
+    }
+    return true;
 }
 
 
@@ -101,7 +94,7 @@ function frontuser_woocommerce_admin_notice() {
  * @since 1.0
  */
 function frontuser_website_smartcode() {
-	SmartCode::render();
+    FrontuserSmartCode::render();
 }
 
 
@@ -112,7 +105,7 @@ function frontuser_website_smartcode() {
  * @since 1.0
  */
 function frontuser_website_matrixcode() {
-	SmartCode::matrix();
+    FrontuserSmartCode::matrix();
 }
 
 

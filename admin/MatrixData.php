@@ -8,7 +8,7 @@
  *
  * @package Frontuser_Admin_Setting
  */
-class MatrixData
+class FrontuserMatrixData
 {
 	/**
 	 * A reference the class responsible for rendering the menu_page page.
@@ -62,7 +62,7 @@ class MatrixData
  *
  * @package Frontuser_Admin_MatrixDatas
  */
-class MatrixData_Page
+class FrontuserMatrixData_Page
 {
 
 	/**

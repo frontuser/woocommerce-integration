@@ -3,6 +3,11 @@
         <div class="fu-metaboxes">
             <table width="100%">
                 <tr>
+
+                    <?php
+                    if(frontuser_is_woocommerce_enabled()):
+                    ?>
+
                     <td width="50%" valign="top">
                         <h2>
                             <span>Product Data:</span>
@@ -72,6 +77,9 @@
                             </table>
                         </div>
                     </td>
+
+                    <?php endif; ?>
+
                     <td width="50%" valign="top">
                         <h2>
                             <span>User Data:</span>

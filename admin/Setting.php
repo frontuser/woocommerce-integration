@@ -8,7 +8,7 @@
  *
  * @package Frontuser_Admin_Setting
  */
-class Setting
+class FrontuserSetting
 {
 	/**
 	 * A reference the class responsible for rendering the menu_page page.
@@ -83,7 +83,7 @@ class Setting
  *
  * @package Frontuser_Admin_Settings
  */
-class Setting_Page
+class FrontuserSetting_Page
 {
 	/**
 	 * This function renders the contents of the page associated with the Setting
